@@ -20,6 +20,9 @@
 		734095F524C38ED200D21E3B /* AddEditViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 734095F324C38ED200D21E3B /* AddEditViewController.xib */; };
 		734095F824C394CC00D21E3B /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 734095F624C394CC00D21E3B /* GameViewController.swift */; };
 		734095F924C394CC00D21E3B /* GameViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 734095F724C394CC00D21E3B /* GameViewController.xib */; };
+		734095FB24C3956F00D21E3B /* GamesCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 734095FA24C3956F00D21E3B /* GamesCollectionViewController.swift */; };
+		734095FE24C395A300D21E3B /* GameCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 734095FC24C395A300D21E3B /* GameCollectionViewCell.swift */; };
+		734095FF24C395A300D21E3B /* GameCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 734095FD24C395A300D21E3B /* GameCollectionViewCell.xib */; };
 		73F1D57924C24E3900DF664E /* Storage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73F1D57824C24E3900DF664E /* Storage.swift */; };
 		73F1D57E24C255B800DF664E /* GamesCollection.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 73F1D57D24C255B800DF664E /* GamesCollection.storyboard */; };
 		73F1D58324C2565900DF664E /* Consoles.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 73F1D58224C2565900DF664E /* Consoles.storyboard */; };
@@ -50,6 +53,9 @@
 		734095F324C38ED200D21E3B /* AddEditViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddEditViewController.xib; sourceTree = "<group>"; };
 		734095F624C394CC00D21E3B /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
 		734095F724C394CC00D21E3B /* GameViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GameViewController.xib; sourceTree = "<group>"; };
+		734095FA24C3956F00D21E3B /* GamesCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GamesCollectionViewController.swift; sourceTree = "<group>"; };
+		734095FC24C395A300D21E3B /* GameCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameCollectionViewCell.swift; sourceTree = "<group>"; };
+		734095FD24C395A300D21E3B /* GameCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GameCollectionViewCell.xib; sourceTree = "<group>"; };
 		73F1D57824C24E3900DF664E /* Storage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Storage.swift; sourceTree = "<group>"; };
 		73F1D57D24C255B800DF664E /* GamesCollection.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = GamesCollection.storyboard; sourceTree = "<group>"; };
 		73F1D58224C2565900DF664E /* Consoles.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Consoles.storyboard; sourceTree = "<group>"; };
@@ -163,6 +169,9 @@
 			isa = PBXGroup;
 			children = (
 				73F1D57D24C255B800DF664E /* GamesCollection.storyboard */,
+				734095FD24C395A300D21E3B /* GameCollectionViewCell.xib */,
+				734095FA24C3956F00D21E3B /* GamesCollectionViewController.swift */,
+				734095FC24C395A300D21E3B /* GameCollectionViewCell.swift */,
 			);
 			path = collection;
 			sourceTree = "<group>";
@@ -294,6 +303,7 @@
 				7307BB5F24C22B1A0040AD9D /* LoginLandscape.storyboard in Resources */,
 				734095F924C394CC00D21E3B /* GameViewController.xib in Resources */,
 				ED8AA20C246F559500287D33 /* Main.storyboard in Resources */,
+				734095FF24C395A300D21E3B /* GameCollectionViewCell.xib in Resources */,
 				7307BB5724C1DDB80040AD9D /* Games.storyboard in Resources */,
 				7307BB5B24C1DE7E0040AD9D /* OnBoardingCollectionViewCell.xib in Resources */,
 			);
@@ -308,10 +318,12 @@
 			files = (
 				7307BB6124C23ACA0040AD9D /* LoginContainerViewController.swift in Sources */,
 				7307BB5A24C1DE7E0040AD9D /* OnBoardingCollectionViewCell.swift in Sources */,
+				734095FE24C395A300D21E3B /* GameCollectionViewCell.swift in Sources */,
 				ED8AA205246F559500287D33 /* AppDelegate.swift in Sources */,
 				73F1D57924C24E3900DF664E /* Storage.swift in Sources */,
 				7307BB5524C1DD880040AD9D /* OnBoardingViewController.swift in Sources */,
 				ED8AA22624701E9600287D33 /* ConsolesTableViewController.swift in Sources */,
+				734095FB24C3956F00D21E3B /* GamesCollectionViewController.swift in Sources */,
 				ED8AA207246F559500287D33 /* SceneDelegate.swift in Sources */,
 				ED8AA22A2470581C00287D33 /* ConsolesManager.swift in Sources */,
 				ED8AA21C2470176B00287D33 /* GamesTableViewController.swift in Sources */,
