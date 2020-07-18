@@ -10,14 +10,39 @@ import UIKit
 
 class LoginViewController: UIViewController {
     
+    var delegate: LoginContainerViewControllerDelegate?
+    
     @IBOutlet weak var textField: UITextField!
+    
+    @IBOutlet weak var textFieldLandscape: UITextField!
     
     override func viewDidLoad() {
         super.viewDidLoad()
     }
     
+    @IBAction func onPressReturn(_ sender: UITextField) {
+        sender.resignFirstResponder()
+        signin(sender.text)
+    }
+    
     @IBAction func login(_ sender: UIButton) {
-        guard let username = textField.text else {
+        signin(textField.text)
+    }
+    
+    @IBAction func onPressReturnLandscape(_ sender: UITextField) {
+        sender.resignFirstResponder()
+        signin(sender.text)
+    }
+    
+    @IBAction func loginLandscape(_ sender: UIButton) {
+        signin(textFieldLandscape.text)
+    }
+}
+
+extension LoginViewController {
+    
+    private func signin(_ username: String?) {
+        guard let username = username else {
             showAlert()
             return
         }
@@ -26,15 +51,9 @@ class LoginViewController: UIViewController {
             
             showAlert()
             return
-            
         }
         
-        Auth.signin(name: username.uppercased())
-        
-        navigationController?.pushViewController(
-            UIStoryboard(name: "Main", bundle: nil).instantiateInitialViewController()!,
-            animated: true
-        )
+        self.delegate?.onLogin(username)
         
     }
     
@@ -55,4 +74,5 @@ class LoginViewController: UIViewController {
         present(alertController,
                 animated: true)
     }
+    
 }

@@ -54,6 +54,19 @@ class OnBoardingViewController: UIViewController, UICollectionViewDataSource, UI
         )
     }
     
+    @IBAction func onPageChanges(_ pc: UIPageControl) {
+        // scrolling the collectionView to the selected page
+        collectionView.scrollToItem(at: IndexPath(item: pc.currentPage, section: 0),
+                                    at: .centeredHorizontally, animated: true)
+    }
+    
+    @IBAction func OnClickSkipbutton(_ sender: UIButton) {
+        
+        let controller = UIStoryboard(name: "Login", bundle: nil).instantiateInitialViewController() as UIViewController?
+        controller?.modalPresentationStyle = .fullScreen
+        present(controller!, animated: true)
+        
+    }
 }
 
 extension OnBoardingViewController {
@@ -77,22 +90,4 @@ extension OnBoardingViewController {
         return CGSize(width: self.collectionView.frame.width, height: self.collectionView.frame.height)
     }
     
-    @IBAction func onPageChanges(_ sender: Any) {
-        let pc = sender as! UIPageControl
-        
-        // scrolling the collectionView to the selected page
-        collectionView.scrollToItem(at: IndexPath(item: pc.currentPage, section: 0),
-                                    at: .centeredHorizontally, animated: true)
-    }
-    
-    @IBAction func onSkipButtonPressed(_ sender: Any) {
-        // move the user to the other view controller
-        print("Move to other view controller")
-        
-//        self.navigationController?.presentViewController(
-//            setViewController,
-//            animated: false,
-//            completion: nil
-//        )
-    }
 }

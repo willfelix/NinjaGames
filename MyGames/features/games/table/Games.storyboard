@@ -1,69 +1,107 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="kcz-qL-eFO">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="JoA-rg-KOM">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
-        <capability name="collection view cell content view" minToolsVersion="11.0"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Collection View Controller-->
-        <scene sceneID="fyN-iH-GP2">
+        <!--Lista de Jogos-->
+        <scene sceneID="di0-jW-4b6">
             <objects>
-                <collectionViewController id="ndt-0h-Hq0" sceneMemberID="viewController">
-                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="z2Z-5p-Vud">
+                <tableViewController id="SEd-aG-KO0" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="qor-Ub-tKH">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                        <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="7A9-7O-HUi">
-                            <size key="itemSize" width="128" height="128"/>
-                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
-                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
-                        </collectionViewFlowLayout>
-                        <cells>
-                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="bCA-Xa-5Nd">
-                                <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="01Y-cr-xP0">
-                                    <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="game_table_cell" rowHeight="100" id="hsd-ba-uzf" customClass="GameTableViewCell" customModule="MyGames" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="414" height="100"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="hsd-ba-uzf" id="8Aj-R8-jHp">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="100"/>
                                     <autoresizingMask key="autoresizingMask"/>
-                                </collectionViewCellContentView>
-                            </collectionViewCell>
-                        </cells>
+                                    <subviews>
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ugX-fj-Y2W">
+                                            <rect key="frame" x="8" y="13.5" width="65" height="73"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="73" id="WFa-DX-CKZ"/>
+                                                <constraint firstAttribute="width" constant="65" id="WXG-DL-XsH"/>
+                                            </constraints>
+                                        </imageView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Título do game aqui Título do game aqui Título do game aqui Título do game aqui" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="none" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="c3f-jI-KIW" userLabel="Lbl Title">
+                                            <rect key="frame" x="81" y="13.5" width="325" height="45.5"/>
+                                            <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="19"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nome do console aqui" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AVn-We-bu8" userLabel="Lbl Console">
+                                            <rect key="frame" x="81" y="63" width="325" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstAttribute="trailing" secondItem="AVn-We-bu8" secondAttribute="trailing" constant="8" id="0V5-qq-Po7"/>
+                                        <constraint firstItem="ugX-fj-Y2W" firstAttribute="centerY" secondItem="8Aj-R8-jHp" secondAttribute="centerY" id="0jQ-dP-9Jl"/>
+                                        <constraint firstItem="c3f-jI-KIW" firstAttribute="leading" secondItem="ugX-fj-Y2W" secondAttribute="trailing" constant="8" id="6xx-hi-7pl"/>
+                                        <constraint firstAttribute="trailing" secondItem="c3f-jI-KIW" secondAttribute="trailing" constant="8" id="7nb-P5-VpL"/>
+                                        <constraint firstItem="AVn-We-bu8" firstAttribute="top" secondItem="c3f-jI-KIW" secondAttribute="bottom" constant="4" id="HJb-og-Tpv"/>
+                                        <constraint firstItem="AVn-We-bu8" firstAttribute="leading" secondItem="ugX-fj-Y2W" secondAttribute="trailing" constant="8" id="OiD-nN-o5P"/>
+                                        <constraint firstItem="c3f-jI-KIW" firstAttribute="top" secondItem="ugX-fj-Y2W" secondAttribute="top" id="Tf7-AE-BYr"/>
+                                        <constraint firstItem="ugX-fj-Y2W" firstAttribute="leading" secondItem="8Aj-R8-jHp" secondAttribute="leading" constant="8" id="ZQl-SC-NJa"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
                         <connections>
-                            <outlet property="dataSource" destination="ndt-0h-Hq0" id="mWa-xy-Vjq"/>
-                            <outlet property="delegate" destination="ndt-0h-Hq0" id="Swu-XI-1qU"/>
+                            <outlet property="dataSource" destination="SEd-aG-KO0" id="0GZ-ee-GjO"/>
+                            <outlet property="delegate" destination="SEd-aG-KO0" id="LMt-bL-yHi"/>
                         </connections>
-                    </collectionView>
-                    <navigationItem key="navigationItem" id="FTb-jS-pnu"/>
-                </collectionViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="iH9-3E-aSc" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Lista de Jogos" leftItemsSupplementBackButton="YES" id="VWF-4P-UPL">
+                        <barButtonItem key="leftBarButtonItem" title="Logout" id="fs9-KI-Apq"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="SYO-E9-bqV"/>
+                    </navigationItem>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="5MS-Bc-ZLE" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="533.33333333333337" y="-312.05357142857139"/>
+            <point key="canvasLocation" x="417" y="-288"/>
         </scene>
-        <!--Collection-->
-        <scene sceneID="ngK-YK-egM">
+        <!--Jogos-->
+        <scene sceneID="HAz-Ef-pQ7">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="kcz-qL-eFO" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Collection" image="game" id="NSr-Ox-7wm"/>
-                    <toolbarItems/>
+                <navigationController id="JoA-rg-KOM" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Jogos" image="game" id="aqn-Jo-rrP"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="eUD-Jl-g1J">
-                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="Kh1-vJ-zgn">
+                        <rect key="frame" x="0.0" y="44" width="414" height="96"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" name="main"/>
+                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="barTintColor" name="main"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </textAttributes>
+                        <textAttributes key="largeTitleTextAttributes">
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </textAttributes>
                     </navigationBar>
-                    <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="ndt-0h-Hq0" kind="relationship" relationship="rootViewController" id="rDY-2d-s8s"/>
+                        <segue destination="SEd-aG-KO0" kind="relationship" relationship="rootViewController" id="Pc6-DC-NR0"/>
                     </connections>
                 </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="ffL-Dj-LaZ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="9eS-lD-Lbp" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-376.81159420289856" y="-312.05357142857139"/>
+            <point key="canvasLocation" x="-503" y="-288"/>
         </scene>
     </scenes>
     <resources>
         <image name="game" width="23" height="23"/>
+        <namedColor name="main">
+            <color red="0.0" green="0.68235294117647061" blue="0.87450980392156863" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
     </resources>
 </document>

@@ -157,7 +157,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalCompressionResistancePriority="250" verticalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="xSM-Dn-jSf">
-                                <rect key="frame" x="16" y="207" width="382" height="590"/>
+                                <rect key="frame" x="16" y="207" width="382" height="639"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Data lançamento" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gcq-7c-5D3">
                                 <rect key="frame" x="16" y="170" width="382" height="21"/>
@@ -239,7 +239,7 @@
                                 </constraints>
                             </datePicker>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gUe-iH-EL2">
-                                <rect key="frame" x="16" y="763" width="382" height="30"/>
+                                <rect key="frame" x="16" y="812" width="382" height="30"/>
                                 <color key="backgroundColor" name="main"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="Ics-wt-euT"/>
@@ -253,10 +253,10 @@
                                 </connections>
                             </button>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="5gM-KY-8bV">
-                                <rect key="frame" x="16" y="400" width="382" height="355"/>
+                                <rect key="frame" x="16" y="400" width="382" height="404"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hJc-9B-hDg">
-                                <rect key="frame" x="16" y="400" width="382" height="355"/>
+                                <rect key="frame" x="16" y="400" width="382" height="404"/>
                                 <state key="normal" title="Toque para adicionar a imagem de capa"/>
                                 <connections>
                                     <action selector="AddEditCover:" destination="5Et-7Q-d7I" eventType="touchUpInside" id="IcK-SV-MJg"/>
@@ -311,10 +311,12 @@
         <!--Games-->
         <scene sceneID="Zt2-Cq-Vpz">
             <objects>
-                <viewControllerPlaceholder storyboardName="Games" id="OH9-gc-F1f" sceneMemberID="viewController"/>
+                <viewControllerPlaceholder storyboardName="Games" id="OH9-gc-F1f" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Item" id="rEc-qZ-FRi"/>
+                </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Yae-Ih-ooS" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-831" y="-558"/>
+            <point key="canvasLocation" x="-10" y="-554"/>
         </scene>
         <!--Jogos-->
         <scene sceneID="cOZ-vQ-J69">
@@ -350,7 +352,7 @@
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zH5-Re-JDZ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="304" y="-359"/>
+            <point key="canvasLocation" x="304" y="-554"/>
         </scene>
         <!--Plataformas-->
         <scene sceneID="1IX-q6-pFU">
@@ -390,9 +392,9 @@
                         <color key="selectedImageTintColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
                     </tabBar>
                     <connections>
-                        <segue destination="EPg-7V-1gH" kind="relationship" relationship="viewControllers" id="dxO-7C-yz7"/>
+                        <segue destination="OH9-gc-F1f" kind="relationship" relationship="viewControllers" id="u9r-8c-nUf"/>
                         <segue destination="9cl-fG-qQN" kind="relationship" relationship="viewControllers" id="dd6-WO-bSV"/>
-                        <segue destination="gO4-2b-GXY" kind="relationship" relationship="viewControllers" id="Env-5O-Whn"/>
+                        <segue destination="0WZ-8A-kch" kind="relationship" relationship="viewControllers" id="86T-ci-v8B"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pp1-84-71C" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -402,10 +404,12 @@
         <!--Consoles-->
         <scene sceneID="2Mx-vx-VC2">
             <objects>
-                <viewControllerPlaceholder storyboardName="Consoles" id="0WZ-8A-kch" sceneMemberID="viewController"/>
+                <viewControllerPlaceholder storyboardName="Consoles" id="0WZ-8A-kch" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Item" id="8Q7-V1-tTl"/>
+                </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3bJ-dh-Wh2" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1198" y="-536"/>
+            <point key="canvasLocation" x="606" y="-554"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>

@@ -8,20 +8,15 @@
 
 import Foundation
 
-struct Constants {
-    
-    static let OPENED_APP_BEFORE_KEY = "first_time"
-    
-    static let USER_KEY = "user"
-    
-    static let TODO_KEY = "todo"
-    
-}
-
 struct Auth {
     
-    private static let key = Constants.USER_KEY
-    private static let opening_key = Constants.OPENED_APP_BEFORE_KEY
+    private static let key = "user"
+    private static let opening_key = "first_time"
+    
+    static func reset() {
+        UserDefaults.standard.setValue(nil, forKey: key)
+        UserDefaults.standard.setValue(false, forKey: opening_key)
+    }
     
     static func username() -> String? {
         return UserDefaults.standard.string(forKey: key)

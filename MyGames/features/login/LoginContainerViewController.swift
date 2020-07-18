@@ -8,6 +8,10 @@
 
 import UIKit
 
+protocol LoginContainerViewControllerDelegate {
+    func onLogin(_ username: String)
+}
+
 class LoginContainerViewController: UIViewController {
     
     @IBOutlet weak var containerView: UIView!
@@ -23,19 +27,17 @@ class LoginContainerViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        NotificationCenter
-            .default
-            .addObserver(self,
-                         selector: #selector(deviceOrientationDidChange),
-                         name: UIDevice.orientationDidChangeNotification,
-                         object: nil)
+        navigationController?.setNavigationBarHidden(true, animated: false)
         
         deviceOrientationDidChange()
         
     }
     
+    override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
+        self.deviceOrientationDidChange()
+    }
     
-    @objc private func deviceOrientationDidChange() {
+    private func deviceOrientationDidChange() {
         let orientation = UIDevice.current.orientation
         if orientation.isLandscape {
             addChildController(child: landscapeViewController)
@@ -51,6 +53,8 @@ class LoginContainerViewController: UIViewController {
         
         child.view.translatesAutoresizingMaskIntoConstraints = false
         
+        (child as! LoginViewController).delegate = self
+        
         containerView.addSubview(child.view)
         
         configureChildConstraints(child: child.view)
@@ -62,6 +66,19 @@ class LoginContainerViewController: UIViewController {
         child?.trailingAnchor.constraint(equalTo: containerView.trailingAnchor).isActive = true
         child?.topAnchor.constraint(equalTo: containerView.topAnchor).isActive = true
         child?.bottomAnchor.constraint(equalTo: containerView.bottomAnchor).isActive = true
+    }
+
+}
+
+extension LoginContainerViewController: LoginContainerViewControllerDelegate {
+    
+    func onLogin(_ username: String) {
+        Auth.signin( name: username.uppercased() )
+
+        navigationController?.pushViewController(
+            UIStoryboard(name: "Main", bundle: nil).instantiateInitialViewController()!,
+            animated: true
+        )
     }
     
 }

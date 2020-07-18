@@ -7,10 +7,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Login View Controller-->
         <scene sceneID="nFM-9c-AnF">
             <objects>
-                <viewController modalTransitionStyle="flipHorizontal" id="VAY-qN-6fs" sceneMemberID="viewController">
+                <viewController modalTransitionStyle="flipHorizontal" id="VAY-qN-6fs" customClass="LoginViewController" customModule="MyGames" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="5Fc-jx-Fne">
                         <rect key="frame" x="0.0" y="0.0" width="896" height="414"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -49,6 +49,9 @@
                                                 </constraints>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters"/>
+                                                <connections>
+                                                    <action selector="onPressReturnLandscape:" destination="VAY-qN-6fs" eventType="primaryActionTriggered" id="iZt-Bc-FMS"/>
+                                                </connections>
                                             </textField>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2l5-K2-Qxh">
                                                 <rect key="frame" x="0.0" y="74.000000000000014" width="373" height="48.333333333333329"/>
@@ -57,6 +60,9 @@
                                                 <state key="normal" title="Login">
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </state>
+                                                <connections>
+                                                    <action selector="loginLandscape:" destination="VAY-qN-6fs" eventType="touchUpInside" id="cN2-hx-V9B"/>
+                                                </connections>
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="If you never register in myGames App before, use the name &quot;ninja&quot; to log in." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ioH-r1-2Za">
                                                 <rect key="frame" x="0.0" y="146.33333333333331" width="373" height="36"/>
@@ -98,10 +104,14 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="eHr-aO-x7m"/>
                     </view>
+                    <navigationItem key="navigationItem" id="xbJ-Gk-pUi"/>
+                    <connections>
+                        <outlet property="textFieldLandscape" destination="qkS-aK-iJg" id="kB8-rH-DXf"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ET3-2n-rr8" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="282.58928571428572" y="179.71014492753625"/>
+            <point key="canvasLocation" x="1025.8928571428571" y="179.71014492753625"/>
         </scene>
     </scenes>
     <resources>

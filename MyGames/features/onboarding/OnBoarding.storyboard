@@ -31,6 +31,9 @@
                                 <constraints>
                                     <constraint firstAttribute="width" constant="80" id="n1y-lP-G3K"/>
                                 </constraints>
+                                <connections>
+                                    <action selector="onPageChanges:" destination="cik-ZH-LQI" eventType="valueChanged" id="MVQ-vL-G0j"/>
+                                </connections>
                             </pageControl>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qg8-8s-XCg">
                                 <rect key="frame" x="24" y="798" width="366" height="40"/>
@@ -43,7 +46,7 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
-                                    <segue destination="YBF-zJ-4Cd" kind="show" id="2zJ-M0-odm"/>
+                                    <action selector="OnClickSkipbutton:" destination="cik-ZH-LQI" eventType="touchUpInside" id="e8H-OF-ER3"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -70,16 +73,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ig9-ZM-XF8" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="64" y="129"/>
-        </scene>
-        <!--Login-->
-        <scene sceneID="58P-wx-ZYH">
-            <objects>
-                <viewControllerPlaceholder storyboardName="Login" id="YBF-zJ-4Cd" sceneMemberID="viewController">
-                    <navigationItem key="navigationItem" id="qNK-bX-c9D"/>
-                </viewControllerPlaceholder>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="vnp-sl-X1S" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="869" y="53"/>
         </scene>
     </scenes>
 </document>
