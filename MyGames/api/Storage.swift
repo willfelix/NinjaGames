@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit
 
 struct Auth {
     
@@ -42,6 +43,14 @@ struct Auth {
 
     static func signout() {
         UserDefaults.standard.setValue(nil, forKey: key)
+        
+        let controller = UIStoryboard(name: "Login", bundle: nil).instantiateInitialViewController()
+        
+        guard   let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene,
+                let sceneDelegate = windowScene.delegate as? SceneDelegate
+        else { return }
+        
+        sceneDelegate.window?.rootViewController = controller
     }
 
 }

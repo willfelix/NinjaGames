@@ -21,8 +21,8 @@ class GamesTableViewController: UITableViewController {
     lazy var searchController: UISearchController = {
         let searchController = UISearchController(searchResultsController: nil)
         searchController.obscuresBackgroundDuringPresentation = false
-        searchController.searchBar.tintColor = .white
-        searchController.searchBar.barTintColor = .white
+        searchController.searchBar.searchTextField.backgroundColor = .white
+        
         searchController.searchBar.delegate = self
         searchController.searchResultsUpdater = self
         return searchController
@@ -35,6 +35,7 @@ class GamesTableViewController: UITableViewController {
 
         navigationItem.searchController = searchController
         
+        
         loadGames()
         
         NotificationCenter
@@ -46,9 +47,26 @@ class GamesTableViewController: UITableViewController {
 
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        navigationController?.navigationBar.prefersLargeTitles = true
+    }
+    
     @objc func refreshTable(notification: NSNotification) {
         
         self.tableView.reloadData()
+        
+    }
+    
+    @IBAction func addGame(_ sender: UIBarButtonItem) {
+
+        let controller = AddEditViewController()
+        navigationController?.pushViewController(controller, animated: true)
+        
+    }
+    
+    @IBAction func logout(_ sender: UIBarButtonItem) {
+        
+        Auth.signout()
         
     }
     
@@ -87,7 +105,7 @@ extension GamesTableViewController {
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! GameTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "game_table_cell", for: indexPath) as! GameTableViewCell
         guard let game = fetchedResultController.fetchedObjects?[indexPath.row] else {
             return cell
         }
@@ -116,26 +134,10 @@ extension GamesTableViewController {
         }
     }
     
-    // MARK: - Navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier! == "gameSegue" {
-            print("gameSegue")
-            let vc = segue.destination as! GameViewController
-            
-            if let games = fetchedResultController.fetchedObjects {
-                vc.game = games[tableView.indexPathForSelectedRow!.row]
-            }
-            
-        } else if segue.identifier! == "newGameSegue" {
-            print("newGameSegue")
-        }
-    }
-
 }
 
 extension GamesTableViewController: NSFetchedResultsControllerDelegate {
     
-    // sempre que algum objeto for modificado esse metodo sera notificado
     func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChange anObject: Any, at indexPath: IndexPath?, for type: NSFetchedResultsChangeType, newIndexPath: IndexPath?) {
         
         switch type {
@@ -149,12 +151,12 @@ extension GamesTableViewController: NSFetchedResultsControllerDelegate {
             tableView.reloadData()
         }
     }
+    
 }
-
 
 extension GamesTableViewController: UISearchResultsUpdating, UISearchBarDelegate {
     func updateSearchResults(for searchController: UISearchController) {
-        // TODO
+        print("UPDATE SEARCH RESULTS")
     }
    
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {

@@ -51,10 +51,12 @@ class ConsolesTableViewController: UITableViewController {
     }
     
     @IBAction func addConsole(_ sender: UIBarButtonItem) {
-        print("addConsole")
         showAlert(with: nil)
     }
     
+    @IBAction func logout(_ sender: UIBarButtonItem) {
+        Auth.signout()
+    }
 }
 
 extension ConsolesTableViewController {
@@ -68,7 +70,7 @@ extension ConsolesTableViewController {
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "console_table_cell", for: indexPath)
         let console = ConsolesManager.shared.consoles[indexPath.row]
         cell.textLabel?.text = console.name
         return cell

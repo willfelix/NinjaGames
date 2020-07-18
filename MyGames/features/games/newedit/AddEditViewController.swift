@@ -36,6 +36,8 @@ class AddEditViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        navigationController?.navigationBar.prefersLargeTitles = false
+        
         // puxar dos dados do banco e atualizar memoria: "consoles"
         ConsolesManager.shared.loadConsoles(with: context)
     }

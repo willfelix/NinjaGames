@@ -46,11 +46,7 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Lista de Plataformas" id="LCW-gb-A6U">
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="xcn-HP-eaK">
-                            <connections>
-                                <action selector="addConsole:" destination="5UI-k8-rN4" id="4G1-4t-DXK"/>
-                            </connections>
-                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="xcn-HP-eaK"/>
                     </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dA0-cK-GkU" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -111,9 +107,6 @@
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <outlet property="ivCover" destination="hoJ-ox-Zjq" id="cpc-aE-7i7"/>
-                                    <outlet property="lbConsole" destination="ef4-4G-Pb4" id="3iE-NP-uY6"/>
-                                    <outlet property="lbTitle" destination="20E-CP-p3s" id="24F-lO-Evy"/>
                                     <segue destination="MFT-nV-1i3" kind="show" identifier="gameSegue" id="jsx-aK-X0K"/>
                                 </connections>
                             </tableViewCell>
@@ -202,10 +195,10 @@
             </objects>
             <point key="canvasLocation" x="-2797" y="1102"/>
         </scene>
-        <!--Add Edit View Controller-->
+        <!--View Controller-->
         <scene sceneID="kP7-CU-pKH">
             <objects>
-                <viewController id="5Et-7Q-d7I" customClass="AddEditViewController" customModule="MyGames" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="5Et-7Q-d7I" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="zsq-p1-1Vq">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -248,9 +241,6 @@
                                 <state key="normal" title="ADICIONAR">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
-                                <connections>
-                                    <action selector="addEditGame:" destination="5Et-7Q-d7I" eventType="touchUpInside" id="Olq-mY-QxV"/>
-                                </connections>
                             </button>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="5gM-KY-8bV">
                                 <rect key="frame" x="16" y="400" width="382" height="404"/>
@@ -258,9 +248,6 @@
                             <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hJc-9B-hDg">
                                 <rect key="frame" x="16" y="400" width="382" height="404"/>
                                 <state key="normal" title="Toque para adicionar a imagem de capa"/>
-                                <connections>
-                                    <action selector="AddEditCover:" destination="5Et-7Q-d7I" eventType="touchUpInside" id="IcK-SV-MJg"/>
-                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
@@ -295,18 +282,10 @@
                         <viewLayoutGuide key="safeArea" id="yp6-Gl-XYH"/>
                     </view>
                     <navigationItem key="navigationItem" id="9nG-Te-Erh"/>
-                    <connections>
-                        <outlet property="btAddEdit" destination="gUe-iH-EL2" id="kOf-qz-Fk2"/>
-                        <outlet property="btCover" destination="hJc-9B-hDg" id="g33-HG-a8s"/>
-                        <outlet property="dpReleaseDate" destination="0VS-xR-eu5" id="VMf-1H-83A"/>
-                        <outlet property="ivCover" destination="5gM-KY-8bV" id="Yg4-kX-KQB"/>
-                        <outlet property="tfConsole" destination="N43-FF-SkB" id="zRq-av-Ehs"/>
-                        <outlet property="tfTitle" destination="wUo-iB-Uyo" id="oG3-uK-eEc"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fjO-75-SeP" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2797" y="1820"/>
+            <point key="canvasLocation" x="-2671" y="1915"/>
         </scene>
         <!--Games-->
         <scene sceneID="Zt2-Cq-Vpz">
