@@ -178,18 +178,8 @@
                         <viewLayoutGuide key="safeArea" id="bHX-ru-4no"/>
                     </view>
                     <navigationItem key="navigationItem" largeTitleDisplayMode="never" id="a41-DQ-Svi">
-                        <barButtonItem key="rightBarButtonItem" systemItem="edit" id="bWe-nL-myT">
-                            <connections>
-                                <segue destination="5Et-7Q-d7I" kind="show" id="tlD-yF-ODS"/>
-                            </connections>
-                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="edit" id="bWe-nL-myT"/>
                     </navigationItem>
-                    <connections>
-                        <outlet property="ivCover" destination="xSM-Dn-jSf" id="vzH-nW-qwR"/>
-                        <outlet property="lbConsole" destination="YOG-FD-2rK" id="cU4-qu-abH"/>
-                        <outlet property="lbReleaseDate" destination="gcq-7c-5D3" id="0fv-7b-9n7"/>
-                        <outlet property="lbTitle" destination="b2w-jd-mgL" id="cky-40-f58"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UZr-hl-iJb" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -391,9 +381,6 @@
             <point key="canvasLocation" x="606" y="-554"/>
         </scene>
     </scenes>
-    <inferredMetricsTieBreakers>
-        <segue reference="b0W-LW-bfy"/>
-    </inferredMetricsTieBreakers>
     <resources>
         <image name="console" width="23" height="23"/>
         <image name="game" width="23" height="23"/>

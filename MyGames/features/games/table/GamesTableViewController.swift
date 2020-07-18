@@ -114,6 +114,16 @@ extension GamesTableViewController {
         return cell
     }
     
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        let controller = GameViewController()
+        if let games = fetchedResultController.fetchedObjects {
+            controller.game = games[tableView.indexPathForSelectedRow!.row]
+        }
+        navigationController?.pushViewController(controller, animated: true)
+        
+    }
+    
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         
         if editingStyle == .delete {
