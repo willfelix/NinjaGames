@@ -11,13 +11,32 @@ import CoreData
 
 private let reuseIdentifier = "game_collection_cell"
 
-class GamesCollectionViewController: UICollectionViewController {
+class GamesCollectionViewController: UICollectionViewController, UICollectionViewDelegateFlowLayout {
+    
+    lazy var label: UILabel? = {
+        let label = UILabel()
+        label.text = "Você não tem jogos cadastrados"
+        label.textAlignment = .center
+        return label
+    }()
+    
+    lazy var searchController: UISearchController = {
+        let searchController = UISearchController(searchResultsController: nil)
+        searchController.obscuresBackgroundDuringPresentation = false
+        searchController.searchBar.searchTextField.backgroundColor = .white
+        
+        searchController.searchBar.delegate = self
+        searchController.searchResultsUpdater = self
+        return searchController
+    }()
     
     var fetchedResultController: NSFetchedResultsController<Game>!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        navigationItem.searchController = searchController
+        
         self.collectionView.register(
             UINib(nibName: "GameCollectionViewCell", bundle: Bundle.main),
             forCellWithReuseIdentifier: reuseIdentifier
@@ -25,17 +44,22 @@ class GamesCollectionViewController: UICollectionViewController {
         
         self.loadGames()
     }
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using [segue destinationViewController].
-        // Pass the selected object to the new view controller.
+    
+    override func viewWillAppear(_ animated: Bool) {
+        navigationController?.navigationBar.prefersLargeTitles = true
     }
-    */
-
+    
+    @IBAction func addGame(_ sender: UIBarButtonItem) {
+        
+        let controller = AddEditViewController()
+        navigationController?.pushViewController(controller, animated: true)
+        
+    }
+    
+    @IBAction func logout(_ sender: UIBarButtonItem) {
+        Auth.signout()
+    }
+    
     // MARK: UICollectionViewDataSource
 
     override func numberOfSections(in collectionView: UICollectionView) -> Int {
@@ -58,37 +82,20 @@ class GamesCollectionViewController: UICollectionViewController {
     
         return cell
     }
-
-    // MARK: UICollectionViewDelegate
-
-    /*
-    // Uncomment this method to specify if the specified item should be highlighted during tracking
-    override func collectionView(_ collectionView: UICollectionView, shouldHighlightItemAt indexPath: IndexPath) -> Bool {
-        return true
-    }
-    */
-
-    /*
-    // Uncomment this method to specify if the specified item should be selected
-    override func collectionView(_ collectionView: UICollectionView, shouldSelectItemAt indexPath: IndexPath) -> Bool {
-        return true
-    }
-    */
-
-    /*
-    // Uncomment these methods to specify if an action menu should be displayed for the specified item, and react to actions performed on the item
-    override func collectionView(_ collectionView: UICollectionView, shouldShowMenuForItemAt indexPath: IndexPath) -> Bool {
-        return false
-    }
-
-    override func collectionView(_ collectionView: UICollectionView, canPerformAction action: Selector, forItemAt indexPath: IndexPath, withSender sender: Any?) -> Bool {
-        return false
-    }
-
-    override func collectionView(_ collectionView: UICollectionView, performAction action: Selector, forItemAt indexPath: IndexPath, withSender sender: Any?) {
     
+    override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let controller = GameViewController()
+        if let games = fetchedResultController.fetchedObjects {
+            controller.game = games[indexPath.row]
+        }
+        navigationController?.pushViewController(controller, animated: true)
     }
-    */
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout,
+                        sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return CGSize(width: self.collectionView.frame.width, height: self.collectionView.frame.height)
+    }
+    
 
 }
 
@@ -115,3 +122,20 @@ extension GamesCollectionViewController: NSFetchedResultsControllerDelegate {
     }
     
 }
+
+extension GamesCollectionViewController: UISearchResultsUpdating, UISearchBarDelegate {
+    func updateSearchResults(for searchController: UISearchController) {
+        print("UPDATE SEARCH RESULTS")
+    }
+   
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        loadGames()
+        collectionView.reloadData()
+    }
+   
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        loadGames(filtering: searchBar.text!)
+        collectionView.reloadData()
+    }
+}
+

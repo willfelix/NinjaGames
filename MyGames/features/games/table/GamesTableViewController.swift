@@ -35,7 +35,6 @@ class GamesTableViewController: UITableViewController {
 
         navigationItem.searchController = searchController
         
-        
         loadGames()
         
         NotificationCenter
